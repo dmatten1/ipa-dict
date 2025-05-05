@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MP3 Player App</title>
+</head>
+<body>
+  <h1>MP3 Dictionary</h1>
+  <div id="mp3-list"></div>
+
+  <script>
+    fetch('mp3_dict.json')
+      .then(response => response.json())
+      .then(mp3Dict => {
+        const container = document.getElementById('mp3-list');
+        for (const [label, path] of Object.entries(mp3Dict)) {
+          const div = document.createElement('div');
+          const title = document.createElement('p');
+          title.textContent = label;
+
+          const audio = document.createElement('audio');
+          audio.controls = true;
+          audio.src = path;
+
+          div.appendChild(title);
+          div.appendChild(audio);
+          container.appendChild(div);
+        }
+      });
+  </script>
+</body>
+</html>
