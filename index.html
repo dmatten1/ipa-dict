@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MP3 Player App</title>
+  <title>MP3 Dictionary</title>
 </head>
 <body>
   <h1>MP3 Dictionary</h1>
@@ -12,14 +12,16 @@
       .then(response => response.json())
       .then(mp3Dict => {
         const container = document.getElementById('mp3-list');
-        for (const [label, path] of Object.entries(mp3Dict)) {
+
+        for (const [word, data] of Object.entries(mp3Dict)) {
           const div = document.createElement('div');
+
           const title = document.createElement('p');
-          title.textContent = label;
+          title.textContent = `${word} (${data.ipa})`;
 
           const audio = document.createElement('audio');
           audio.controls = true;
-          audio.src = path;
+          audio.src = data.audio;
 
           div.appendChild(title);
           div.appendChild(audio);
