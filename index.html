@@ -2,13 +2,55 @@
 <html>
 <head>
   <title>MP3 Dictionary</title>
+  <style>
+    #ipa-keyboard button {
+      margin: 0.2em;
+      padding: 0.4em 0.6em;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    #ipa-input {
+      font-family: 'Arial', 'Charis SIL', 'Doulos SIL', sans-serif;
+      width: 80%;
+      padding: 0.5em;
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 <body>
+  <h1>IPA Input</h1>
+  <input type="text" id="ipa-input" placeholder="Click IPA symbols or type here" />
+
+  <div id="ipa-keyboard">
+    <button onclick="insertIPA('ɑ')">ɑ</button>
+    <button onclick="insertIPA('ʃ')">ʃ</button>
+    <button onclick="insertIPA('ŋ')">ŋ</button>
+    <button onclick="insertIPA('θ')">θ</button>
+    <button onclick="insertIPA('ð')">ð</button>
+    <button onclick="insertIPA('ɪ')">ɪ</button>
+    <button onclick="insertIPA('ʊ')">ʊ</button>
+    <button onclick="insertIPA('ʔ')">ʔ</button>
+    <button onclick="insertIPA('ɛ')">ɛ</button>
+    <button onclick="insertIPA('ə')">ə</button>
+  </div>
+
   <h1>MP3 Dictionary</h1>
   <div id="mp3-list"></div>
 
   <script>
-    fetch('/ipa-dict/mp3_dict.json')  <!-- Updated path -->
+    function insertIPA(char) {
+      const input = document.getElementById('ipa-input');
+      const start = input.selectionStart;
+      const end = input.selectionEnd;
+      const text = input.value;
+
+      input.value = text.slice(0, start) + char + text.slice(end);
+      input.focus();
+      input.selectionStart = input.selectionEnd = start + char.length;
+    }
+
+    fetch('/ipa-dict/mp3_dict.json')
       .then(response => response.json())
       .then(mp3Dict => {
         const container = document.getElementById('mp3-list');
