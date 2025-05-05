@@ -8,7 +8,7 @@
   <div id="mp3-list"></div>
 
   <script>
-    fetch('mp3_dict.json')
+    fetch('/ipa-dict/mp3_dict.json')  <!-- Updated path -->
       .then(response => response.json())
       .then(mp3Dict => {
         const container = document.getElementById('mp3-list');
@@ -27,7 +27,8 @@
           div.appendChild(audio);
           container.appendChild(div);
         }
-      });
+      })
+      .catch(err => console.error('Failed to load the mp3 dictionary:', err));
   </script>
 </body>
 </html>
