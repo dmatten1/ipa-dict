@@ -1,1 +1,42 @@
-{"dutt": {"ipa": "/\u02c8d\u0259t/", "audio": "audios/dutt.mp3"}, "heiss": {"ipa": "/\u02c8ha\u026as/", "audio": "audios/heiss.mp3"}, "bellah": {"ipa": "/\u02c8b\u025b\u026b\u0259/", "audio": "audios/bellah.mp3"}, "businessmen": {"ipa": "/\u02c8b\u026azn\u026as\u02ccm\u025bn/", "audio": "audios/businessmen.mp3"}, "bacus": {"ipa": "/\u02c8b\u00e6k\u026as/", "audio": "audios/bacus.mp3"}, "manilow": {"ipa": "/\u02c8m\u00e6n\u026a\u026bo\u028a/", "audio": "audios/manilow.mp3"}, "bels": {"ipa": "/\u02c8b\u025b\u026bz/", "audio": "audios/bels.mp3"}, "baboon's": {"ipa": "/b\u00e6\u02c8bunz/", "audio": "audios/baboon's.mp3"}, "salter's": {"ipa": "/\u02c8s\u0254\u026bt\u025dz/", "audio": "audios/salter's.mp3"}, "lighted": {"ipa": "/\u02c8\u026ba\u026at\u0259d/", "audio": "audios/lighted.mp3"}}
+{
+  "dutt": {
+    "ipa": "/\u02c8d\u0259t/",
+    "audio": "/ipa-dict/audios/dutt.mp3"
+  },
+  "heiss": {
+    "ipa": "/\u02c8ha\u026as/",
+    "audio": "/ipa-dict/audios/heiss.mp3"
+  },
+  "bellah": {
+    "ipa": "/\u02c8b\u025b\u026b\u0259/",
+    "audio": "/ipa-dict/audios/bellah.mp3"
+  },
+  "businessmen": {
+    "ipa": "/\u02c8b\u026azn\u026as\u02ccm\u025bn/",
+    "audio": "/ipa-dict/audios/businessmen.mp3"
+  },
+  "bacus": {
+    "ipa": "/\u02c8b\u00e6k\u026as/",
+    "audio": "/ipa-dict/audios/bacus.mp3"
+  },
+  "manilow": {
+    "ipa": "/\u02c8m\u00e6n\u026a\u026bo\u028a/",
+    "audio": "/ipa-dict/audios/manilow.mp3"
+  },
+  "bels": {
+    "ipa": "/\u02c8b\u025b\u026bz/",
+    "audio": "/ipa-dict/audios/bels.mp3"
+  },
+  "baboon's": {
+    "ipa": "/b\u00e6\u02c8bunz/",
+    "audio": "/ipa-dict/audios/baboon's.mp3"
+  },
+  "salter's": {
+    "ipa": "/\u02c8s\u0254\u026bt\u025dz/",
+    "audio": "/ipa-dict/audios/salter's.mp3"
+  },
+  "lighted": {
+    "ipa": "/\u02c8\u026ba\u026at\u0259d/",
+    "audio": "/ipa-dict/audios/lighted.mp3"
+  }
+}
