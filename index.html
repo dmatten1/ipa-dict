@@ -77,44 +77,57 @@
   </div>
 
   <h1>MP3 Dictionary</h1>
-  <div id="mp3-list"></div>
+<button id="random-btn">Show Random Word</button>
+<div id="mp3-list"></div>
 
-  <script>
-    function insertIPA(char) {
+<script>
+  let mp3Dict = null;
+
+  function insertIPA(char) {
     const input = document.getElementById('ipa-input');
     const start = input.selectionStart;
     const end = input.selectionEnd;
     const text = input.value;
 
-    // Insert the IPA character without overwriting the selection
     input.value = text.slice(0, start) + char + text.slice(end);
-
-    // Move the cursor to the end of the inserted character
     input.focus();
     input.selectionStart = input.selectionEnd = start + char.length;
-    }
+  }
 
-    fetch('/ipa-dict/mp3_dict.json')
-      .then(response => response.json())
-      .then(mp3Dict => {
-        const container = document.getElementById('mp3-list');
+  function showRandomWord() {
+    const container = document.getElementById('mp3-list');
+    container.innerHTML = ''; // Clear previous entry
 
-        for (const [word, data] of Object.entries(mp3Dict)) {
-          const div = document.createElement('div');
+    const keys = Object.keys(mp3Dict);
+    const randomKey = keys[Math.floor(Math.random() * keys.length)];
+    const data = mp3Dict[randomKey];
 
-          const title = document.createElement('p');
-          title.textContent = `${word} (${data.ipa})`;
+    const div = document.createElement('div');
 
-          const audio = document.createElement('audio');
-          audio.controls = true;
-          audio.src = data.audio;
+    const title = document.createElement('p');
+    title.textContent = `${randomKey} (${data.ipa})`;
 
-          div.appendChild(title);
-          div.appendChild(audio);
-          container.appendChild(div);
-        }
-      })
-      .catch(err => console.error('Failed to load the mp3 dictionary:', err));
-  </script>
+    const audio = document.createElement('audio');
+    audio.controls = true;
+    audio.src = data.audio;
+
+    div.appendChild(title);
+    div.appendChild(audio);
+    container.appendChild(div);
+  }
+
+  // Load the dictionary once on page load
+  fetch('/ipa-dict/mp3_dict.json')
+    .then(response => response.json())
+    .then(json => {
+      mp3Dict = json;
+      showRandomWord(); // Show one word initially
+    })
+    .catch(err => console.error('Failed to load the mp3 dictionary:', err));
+
+  // Button click triggers new word
+  document.getElementById('random-btn').addEventListener('click', showRandomWord);
+</script>
+
 </body>
 </html>
