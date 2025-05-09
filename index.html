@@ -82,6 +82,7 @@
 
 <script>
   let mp3Dict = null;
+  let currentWord = null;
 
   function insertIPA(char) {
     const input = document.getElementById('ipa-input');
@@ -116,6 +117,29 @@
     container.appendChild(div);
   }
 
+  function checkIPA() {
+    const userInput = document.getElementById('ipa-input').value;
+    const correctIPA = currentWord?.ipa || '';
+    const resultDiv = document.getElementById('result');
+    
+    if (!currentWord) return;
+
+    let resultHTML = '';
+    const maxLen = Math.max(userInput.length, correctIPA.length);
+
+    for (let i = 0; i < maxLen; i++) {
+      const userChar = userInput[i] || '';
+      const correctChar = correctIPA[i] || '';
+
+      if (userChar === correctChar) {
+        resultHTML += `<span style="color: green;">${userChar || '_'}</span>`;
+      } else {
+        resultHTML += `<span style="color: red;">${userChar || '_'}</span>`;
+      }
+    }
+
+    resultDiv.innerHTML = `Result: ${resultHTML}`;
+  }
   // Load the dictionary once on page load
   fetch('/ipa-dict/mp3_dict.json')
     .then(response => response.json())
