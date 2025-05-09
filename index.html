@@ -138,7 +138,7 @@
     let resultHTML = '';
     const maxLen = Math.max(userInput.length, correctIPA.length);
 
-    let isCorrect = userInput === correctIPA;
+    let isCorrect = userInput == correctIPA;
 
     for (let i = 0; i < maxLen; i++) {
       const userChar = userInput[i] || '';
