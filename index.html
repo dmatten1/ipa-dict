@@ -74,8 +74,6 @@
     <button onclick="insertIPA('ʃ')">ʃ</button>
     <button onclick="insertIPA('ʊ')">ʊ</button>
     <button onclick="insertIPA('ʒ')">ʒ</button>
-    <button onclick="insertIPA('ˈ')">ˈ</button>
-    <button onclick="insertIPA('ˌ')">ˌ</button>
     <button onclick="insertIPA('θ')">θ</button>
 
   </div>
@@ -143,7 +141,7 @@
       }
     }
 
-    resultDiv.innerHTML = `Your answer: ${resultHTML} \nCorrect answer: ${correctIPA}`;
+    resultDiv.innerHTML = `Your answer: ${resultHTML} <br>Correct answer: ${correctIPA}`;
   }
   // Load the dictionary once on page load
   fetch('/ipa-dict/mp3_dict.json')
