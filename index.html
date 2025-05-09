@@ -78,7 +78,7 @@
 
   </div>
 
-  <h1>MP3 Dictionary</h1>
+  <h1>Word</h1>
 <button id="random-btn">Show Random Word</button>
 <div id="mp3-list"></div>
 
@@ -106,6 +106,7 @@
     const data = mp3Dict[randomKey];
 
     currentWord = data;
+    document.getElementById('ipa-input').value = '';
     const div = document.createElement('div');
 
     const title = document.createElement('p');
