@@ -24,7 +24,6 @@ ipa-quiz/
 ├── index.html            # Main HTML interface
 ├── mp3_dict.json         # Dictionary of words with IPA and audio
 ├── audio/                # Directory containing MP3 files
-└── styles/               # Optional: external CSS (or inline styles)
 ```
 
 ## 📦 Example `mp3_dict.json`
@@ -33,12 +32,18 @@ ipa-quiz/
 {
   "cat": {
     "ipa": "kæt",
-    "audio": "audio/cat.mp3"
-  },
-  "dog": {
-    "ipa": "dɔɡ",
-    "audio": "audio/dog.mp3"
+    "audio": "audio/####/cat.mp3"
   }
 }
 ```
-##Credits
+## Credits
+
+- **[ipa-dict](https://github.com/open-dict-data/ipa-dict)** – for providing the word list and IPA transcriptions under the [MIT License](https://opensource.org/licenses/MIT).
+- **[IPA Reader](https://ipa-reader.com)** – for generating and downloading MP3 audio files of IPA pronunciations.
+- **[google-10000-english](https://github.com/first20hours/google-10000-english)** – for helping filter the word list to commonly used English words.
+
+## 📜 Licensing and Acknowledgments
+
+- This project uses third-party data and tools, each of which may have its own license. You are encouraged to review the individual licenses linked above if you plan to redistribute or modify the data.
+- The code written for this project is released under the **MIT License**, allowing reuse with attribution.
+
